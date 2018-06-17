@@ -6,7 +6,7 @@
     <h2 class="is-size-3">Movies</h2>
     <VideoList :cloudinaryInstance="cloudinaryInstance" :movie="updatePlayer" :movies="movies"></VideoList>
   </div>
-  <UploadModal :showModal="showModal" @handle-upload="uploadToServer"></UploadModal>
+  <!-- <UploadModal :showModal="showModal" @handle-upload="uploadToServer"></UploadModal> -->
  </div>
 </template>
 
@@ -35,35 +35,21 @@ export default {
       },
       movies: [
         {
-          title: 'Spiderman',
+          title: 'Black Panther',
           banner:
             'https://res.cloudinary.com/christekh/image/upload/y4MBh0EjBlMuOzv9axM4qJlmhzz_vhvcjt',
           trailer:
             'http://res.cloudinary.com/johnayeni/video/upload/v1529271524/Spider-Man_into_the_spider_verse_official_trailer_gasgup.mp4'
         },
         {
-          title: 'Spiderman',
+          title: 'Justice League',
           banner:
             'https://res.cloudinary.com/christekh/image/upload/y4MBh0EjBlMuOzv9axM4qJlmhzz_vhvcjt',
           trailer:
             'http://res.cloudinary.com/johnayeni/video/upload/v1529271524/Spider-Man_into_the_spider_verse_official_trailer_gasgup.mp4'
         },
         {
-          title: 'Spiderman',
-          banner:
-            'https://res.cloudinary.com/christekh/image/upload/y4MBh0EjBlMuOzv9axM4qJlmhzz_vhvcjt',
-          trailer:
-            'http://res.cloudinary.com/johnayeni/video/upload/v1529271524/Spider-Man_into_the_spider_verse_official_trailer_gasgup.mp4'
-        },
-        {
-          title: 'Spiderman',
-          banner:
-            'https://res.cloudinary.com/christekh/image/upload/y4MBh0EjBlMuOzv9axM4qJlmhzz_vhvcjt',
-          trailer:
-            'http://res.cloudinary.com/johnayeni/video/upload/v1529271524/Spider-Man_into_the_spider_verse_official_trailer_gasgup.mp4'
-        },
-        {
-          title: 'Spiderman',
+          title: 'Deadpool',
           banner:
             'https://res.cloudinary.com/christekh/image/upload/y4MBh0EjBlMuOzv9axM4qJlmhzz_vhvcjt',
           trailer:
