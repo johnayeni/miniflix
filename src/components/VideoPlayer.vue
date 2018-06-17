@@ -8,7 +8,8 @@
         class="cld-video-player trailer-bg__video">
       </video>
       <div class="trailer-content">
-        <h1 class="is-size-1  has-text-weight-bold">{{movie.title || 'Black Panther'}}</h1>
+        <h3 class="is-size-1  has-text-weight-bold">{{movie.category || 'Netflix Original'}}</h3>
+        <h1 class="title is-size-1  has-text-weight-bold has-text-danger">{{movie.title || 'Black Panther'}}</h1>
       </div>
   </div>
 </template>
@@ -43,19 +44,3 @@ export default {
   }
 };
 </script>
-​
-<style>
-.trailer-bg {
-  position: relative;
-}
-.trailer-bg__video {
-  position: absolute;
-  width: 100%;
-  outline: none;
-}
-.trailer-content {
-  position: absolute;
-  top: 30%;
-  left: 200px;
-}
-</style>

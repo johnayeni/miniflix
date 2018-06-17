@@ -1,0 +1,58 @@
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #e5e5e5;
+  background-color: #000;
+  padding-top: 30px;
+}
+
+a {
+  color: #ffffff;
+}
+
+.navbar {
+  background-color: transparent;
+  z-index: 2;
+  padding: 30px 0;
+}
+
+.navbar-burger a {
+  color: #ffffff;
+}
+
+.navbar-item {
+  height: 25px;
+  width: auto;
+  color: #ffffff;
+}
+
+.navbar-menu {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.banner {
+  max-width: 204px;
+  height: auto;
+}
+
+.banner:hover {
+  cursor: pointer;
+}
+
+.trailer-bg {
+  position: relative;
+}
+
+.trailer-bg__video {
+  position: absolute;
+  width: 100%;
+  outline: none;
+}
+
+.trailer-content {
+  position: absolute;
+  top: 30%;
+  left: 200px;
+}

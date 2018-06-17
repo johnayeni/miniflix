@@ -14,12 +14,3 @@ export default {
   props: ['cloudinaryInstance', 'movies']
 };
 </script>
-<style>
-.banner {
-  max-width: 204px;
-  height: auto;
-}
-.banner:hover {
-  cursor: pointer;
-}
-</style>

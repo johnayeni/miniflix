@@ -3,7 +3,10 @@
 import Vue from 'vue';
 import 'bulma/css/bulma.css';
 import App from './App';
+import './assets/css/main.css'
 import SocialSharing from 'vue-social-sharing';
+import router from "./router";
+
 
 Vue.config.productionTip = false;
 
@@ -11,6 +14,7 @@ Vue.use(SocialSharing);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  router,
   template: '<App/>',
   components: {
     App,
