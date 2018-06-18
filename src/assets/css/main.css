@@ -1,40 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:500');
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #e5e5e5;
+  color: #f3f3f3;
   background-color: #000;
   padding-top: 30px;
 }
 
 a {
-  color: #ffffff;
+  color: #f3f3f3;
 }
 
 .navbar {
-  background-color: transparent;
+  background-color: #000000;
   z-index: 2;
-  padding: 30px 0;
+  padding: 15px 0;
+}
+
+.navbar-transparent {
+  background-color: transparent;
 }
 
 .navbar-burger a {
-  color: #ffffff;
+  color: #f3f3f3;
 }
 
 .navbar-item {
   height: 25px;
   width: auto;
-  color: #ffffff;
+  color: #f3f3f3;
 }
 
 .navbar-menu {
   background-color: transparent;
-  color: #ffffff;
+  color: #f3f3f3;
+}
+
+.is-hoverable:hover {
+  background-color: #000000;
 }
 
 .banner {
   max-width: 204px;
-  height: auto;
+  height: 250px;
 }
 
 .banner:hover {
@@ -55,4 +64,71 @@ a {
   position: absolute;
   top: 30%;
   left: 200px;
+}
+
+.list-section {
+  padding: 50px 0 !important;
+}
+
+.row {
+  overflow: scroll;
+  width: auto;
+}
+
+.row__inner {
+  transition: 450ms -webkit-transform;
+  transition: 450ms transform;
+  transition: 450ms transform, 450ms -webkit-transform;
+  font-size: 0;
+  white-space: nowrap;
+  margin: 70.3125px 0;
+  padding-bottom: 10px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tile {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 450ms all;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+}
+
+.row__inner:hover {
+  -webkit-transform: translate3d(-62.5px, 0, 0);
+  transform: translate3d(-62.5px, 0, 0);
+}
+
+.row__inner:hover .tile {
+  opacity: 0.3;
+}
+
+.row__inner:hover .tile:hover {
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+.tile:hover~.tile {
+  -webkit-transform: translate3d(125px, 0, 0);
+  transform: translate3d(125px, 0, 0);
+}
+
+.bg-white {
+  background-color: #f3f3f3;
+  color: #000000;
+}
+
+.hr-dark {
+  background-color: #000000;
+  height: 1px;
 }

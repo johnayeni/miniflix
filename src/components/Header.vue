@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <nav :class="isTransparent ? 'navbar is-fixed-top navbar-transparent' : 'navbar is-fixed-top'" role="navigation" aria-label="main navigation">
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
@@ -26,26 +26,68 @@
                 </div>
               </social-sharing>
             </a> -->
-          <a class="navbar-item has-text-white">Home</a>
-          <a class="navbar-item has-text-white">Movies</a>
-          <a class="navbar-item has-text-white">Series</a>
+          <div class="navbar-start">
+            <router-link to="/home" class="navbar-item has-text-white">Home</router-link>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link has-text-white">
+                John
+              </a>
+              <div class="navbar-dropdown" style="background-color: #000000">
+                <router-link to="/profile" class="navbar-item has-text-white">
+                  Profile
+                </router-link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </nav>
+  <!-- <UploadModal :showModal="showModal" @handle-upload="uploadToServer"></UploadModal> -->
 </template>
 
 <script>
+import UploadModal from '../components/UploadModal.vue';
+
 export default {
+  components: {
+    UploadModal
+  },
   data() {
     return {
-      isOpen: false
+      isOpen: false,
+      isTransparent: false
     };
   },
   methods: {
     toggleNav() {
       this.isOpen = !this.isOpen;
+    },
+    uploadToServer(data) {
+      axios.post(this.url, data).then(res => {
+        this.movies = [...this.movies, res.data];
+        this.showModal = false;
+      });
     }
+  },
+  watch: {
+    showModal(val) {
+      val ? this.$refs.modal.open() : this.$refs.modal.close();
+    }
+  },
+  created() {
+    document.addEventListener('scroll', () => {
+      if (
+        window.scrollY < 200 &&
+        String(window.location.pathname) === '/home'
+      ) {
+        this.isTransparent = true;
+      } else {
+        this.isTransparent = false;
+      }
+    });
   }
 };
 </script>

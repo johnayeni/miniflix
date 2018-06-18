@@ -8,8 +8,8 @@
         class="cld-video-player trailer-bg__video">
       </video>
       <div class="trailer-content">
-        <h3 class="is-size-1  has-text-weight-bold">{{movie.category || 'Netflix Original'}}</h3>
-        <h1 class="title is-size-1  has-text-weight-bold has-text-danger">{{movie.title || 'Black Panther'}}</h1>
+        <p class="has-text-weight-bold ">{{movie.category || 'Netflix Original'}}</p>
+        <h1 class="title is-size-1  has-text-weight-bold has-text-warning">{{movie.title || 'Black Panther' | toUpperCase}}</h1>
       </div>
   </div>
 </template>
@@ -40,6 +40,11 @@ export default {
   watch: {
     movie(newMovie, oldMovie) {
       this.player.source(newMovie.trailer);
+    }
+  },
+  filters: {
+    toUpperCase(str) {
+      return str.toUpperCase();
     }
   }
 };
