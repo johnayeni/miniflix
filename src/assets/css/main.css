@@ -132,3 +132,19 @@ a {
   background-color: #000000;
   height: 1px;
 }
+.footer {
+  padding: 2em 5em;
+  background: black;
+}
+.footer .navbar-item {
+  padding: 0;
+  margin: .5em 0;
+  font-size: .8em;
+}
+
+@media only screen and (max-width: 767px) {
+  .footer {
+    padding: 0;
+    text-align: center;
+  }
+}
