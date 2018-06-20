@@ -85,13 +85,13 @@ export default {
       cloud_name: 'johnayeni',
       secure: true
     });
-    axios.get(this.url).then(res => {
-      this.movies = res.data;
-    });
+    // axios.get(this.url).then(res => {
+    //   this.movies = res.data;
+    // });
   },
 };
 </script>
-<style>
+<style scoped>
   .column.is-2 a:hover {
     color: white;
   }
