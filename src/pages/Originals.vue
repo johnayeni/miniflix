@@ -1,18 +1,21 @@
 <template>
- <div>
-  <VideoPlayer :cloudinaryInstance="cloudinaryInstance" :movie="movie"></VideoPlayer>
-  <div class="container home">
-    <VideoList category="Movies" :cloudinaryInstance="cloudinaryInstance" @choose-movie="updatePlayer" :movies="movies"></VideoList>
-    <VideoList category="Series" :cloudinaryInstance="cloudinaryInstance" @choose-movie="updatePlayer" :movies="movies"></VideoList>
-    <VideoList category="Originals" :cloudinaryInstance="cloudinaryInstance" @choose-movie="updatePlayer" :movies="movies"></VideoList>
+  <div class="container originals" style="margin-bottom:5em">
+      <h1 class="is-size-2" style="margin-bottom:.5em">Miniflix Originals</h1>
+      <div class="columns is-multiline">
+        <div style="margin:auto;padding:8em" v-if="!movies || movies.length < 1">Loading...</div>
+        <div class="column is-2" v-else v-for="movie in movies" :key="movie._id" >
+            <router-link to="/home">
+              <img :src="cloudinaryInstance.url(movie.banner)" :alt="movie.title"
+                style="height: 100%; width:100%">
+              <p class="has-text-centered">{{ movie.title }}</p>
+            </router-link>
+        </div>
+      </div>
   </div>
- </div>
 </template>
 
 <script>
 import axios from 'axios';
-import VideoPlayer from '../components/VideoPlayer';
-import VideoList from '../components/VideoList';
 
 const banner =
   'https://res.cloudinary.com/christekh/image/upload/y4MBh0EjBlMuOzv9axM4qJlmhzz_vhvcjt';
@@ -20,17 +23,8 @@ const trailer =
   'http://res.cloudinary.com/johnayeni/video/upload/v1529271524/Spider-Man_into_the_spider_verse_official_trailer_gasgup.mp4';
 
 export default {
-  components: {
-    VideoPlayer,
-    VideoList
-  },
   data() {
     return {
-      movie: {
-        title: 'Spiderman',
-        banner: banner,
-        trailer: trailer
-      },
       movies: [
         {
           title: 'Black Panther',
@@ -84,7 +78,6 @@ export default {
         }
       ],
       url: '<YOUR WEBTASK URL>/movies',
-      showModal: false
     };
   },
   created() {
@@ -96,17 +89,24 @@ export default {
       this.movies = res.data;
     });
   },
-  methods: {
-    updatePlayer(movie) {
-      this.movie = movie;
-    }
-  }
 };
 </script>
-
 <style>
+  .column.is-2 a:hover {
+    color: white;
+  }
+  .column.is-2 {
+    height: 150px;
+    width: 20%;
+    margin-bottom: 4em;
+    padding: .1em;
+  }
   @media only screen and (max-width: 767px) {
-    .home.container {
+    .column.is-2 {
+      width: initial;
+      padding: 0.75rem;
+    }
+    .originals.container {
       padding: 1em;
     }
   }

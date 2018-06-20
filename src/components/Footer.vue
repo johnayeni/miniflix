@@ -48,8 +48,7 @@
 						<a href="https://help.netflix.com/en/node/2101">Corporate Information</a>
 					</p>
 					<p class="navbar-item">
-						<!-- miniflix originals link goes here -->
-						<a href="">Miniflix Originals</a>
+						<router-link to="/originals">Miniflix Originals</router-link>
 					</p>
 				</div>
 				<div class="column">
@@ -65,7 +64,7 @@
 					</p>
 				</div>
 		</div>
-		<h1>Miniflix</h1>
+		<h1><router-link to="/">Miniflix</router-link></h1>
 		</div>
 	</footer>
 </template>

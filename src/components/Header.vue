@@ -1,16 +1,18 @@
 <template>
-  <nav :class="isTransparent ? 'navbar is-fixed-top navbar-transparent' : 'navbar is-fixed-top'" role="navigation" aria-label="main navigation">
-    <div class="container">
+  <nav :class="`navbar is-black ${isTransparent ? 'navbar-transparent': ''}`"
+    role="navigation" aria-label="main navigation" style="padding:1em">
+      <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item" href="/">
+        <router-link to="/" class="navbar-item">
           <img src="https://cloudinary-res.cloudinary.com/image/upload/v1521663307/MiniFlix-Logo_620x180.png" alt="Netflix" width="112" height="28">
-        </a>
+        </router-link>
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="toggleNav">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
-        <div :class="isOpen ? 'navbar-menu is-active' : 'navbar-menu'">
+      </div>
+        <div :class="`navbar-menu ${isOpen ? 'is-active' : ''}`">
             <!-- Upload button here -->
             <!-- <a class="button navbar-item" @click="showModal = !showModal">
               Upload
@@ -26,16 +28,14 @@
                 </div>
               </social-sharing>
             </a> -->
-          <div class="navbar-start">
-            <router-link to="/home" class="navbar-item has-text-white">Home</router-link>
-          </div>
           <div class="navbar-end">
+            <router-link to="/home" class="navbar-item">Home</router-link>
             <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link has-text-white">
+              <a class="navbar-link">
                 John
               </a>
-              <div class="navbar-dropdown" style="background-color: #000000">
-                <router-link to="/profile" class="navbar-item has-text-white">
+              <div class="navbar-dropdown">
+                <router-link to="/profile" class="navbar-item">
                   Profile
                 </router-link>
               </div>
@@ -43,7 +43,6 @@
           </div>
         </div>
       </div>
-    </div>
   </nav>
   <!-- <UploadModal :showModal="showModal" @handle-upload="uploadToServer"></UploadModal> -->
 </template>
