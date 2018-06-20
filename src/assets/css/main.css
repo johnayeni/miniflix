@@ -5,49 +5,14 @@
   -moz-osx-font-smoothing: grayscale;
   color: #f3f3f3;
   background-color: #000;
-  padding-top: 30px;
 }
 
 a {
   color: #f3f3f3;
 }
 
-.navbar {
-  background-color: #000000;
-  z-index: 2;
-  padding: 15px 0;
-}
-
 .navbar-transparent {
-  background-color: transparent;
-}
-
-.navbar-burger a {
-  color: #f3f3f3;
-}
-
-.navbar-item {
-  height: 25px;
-  width: auto;
-  color: #f3f3f3;
-}
-
-.navbar-menu {
-  background-color: transparent;
-  color: #f3f3f3;
-}
-
-.is-hoverable:hover {
-  background-color: #000000;
-}
-
-.banner {
-  max-width: 204px;
-  height: 250px;
-}
-
-.banner:hover {
-  cursor: pointer;
+  background-color: transparent !important;
 }
 
 .trailer-bg {
@@ -55,15 +20,14 @@ a {
 }
 
 .trailer-bg__video {
-  position: absolute;
   width: 100%;
   outline: none;
 }
 
 .trailer-content {
   position: absolute;
-  top: 30%;
-  left: 200px;
+  top: 20%;
+  left: 10%;
 }
 
 .list-section {
@@ -81,7 +45,7 @@ a {
   transition: 450ms transform, 450ms -webkit-transform;
   font-size: 0;
   white-space: nowrap;
-  margin: 70.3125px 0;
+  margin: 70.3125px 0 0;
   padding-bottom: 10px;
   display: -webkit-box;
   display: -moz-box;
@@ -95,12 +59,21 @@ a {
 .tile {
   position: relative;
   display: inline-block;
-  margin: 0;
+  margin: 0 5px;
   font-size: 20px;
   cursor: pointer;
   transition: 450ms all;
   -webkit-transform-origin: center left;
   transform-origin: center left;
+}
+
+.banner {
+  max-width: 204px;
+  height: 250px;
+}
+
+.banner:hover {
+  cursor: pointer;
 }
 
 .row__inner:hover {

@@ -1,17 +1,17 @@
 <template>
- <div>
-  <VideoPlayer :cloudinaryInstance="cloudinaryInstance" :movie="movie"></VideoPlayer>
   <div class="container">
-    <VideoList category="Movies" :cloudinaryInstance="cloudinaryInstance" @choose-movie="updatePlayer" :movies="movies"></VideoList>
-    <VideoList category="Series" :cloudinaryInstance="cloudinaryInstance" @choose-movie="updatePlayer" :movies="movies"></VideoList>
-    <VideoList category="Originals" :cloudinaryInstance="cloudinaryInstance" @choose-movie="updatePlayer" :movies="movies"></VideoList>
+      <h1 class="is-size-2" style="margin-bottom:.5em">Miniflix Originals</h1>
+      <div class="columns is-multiline">
+        <div style="margin:auto;padding:8em" v-if="!movies || movies.length < 1">Loading...</div>
+        <div class="column is-2" v-else v-for="movie in movies" :key="movie._id" >
+            <img src="" alt="" class="image is-4by3">
+        </div>
+      </div>
   </div>
- </div>
 </template>
 
 <script>
 import axios from 'axios';
-import VideoPlayer from '../components/VideoPlayer';
 import VideoList from '../components/VideoList';
 
 const banner =
@@ -21,7 +21,6 @@ const trailer =
 
 export default {
   components: {
-    VideoPlayer,
     VideoList
   },
   data() {
@@ -31,7 +30,7 @@ export default {
         banner: banner,
         trailer: trailer
       },
-      movies: [
+      movies_: [
         {
           title: 'Black Panther',
           banner: banner,

@@ -3,12 +3,11 @@
       <video
         id="trailer"
         autoplay
-        loop
         controls
         class="cld-video-player trailer-bg__video">
       </video>
       <div class="trailer-content">
-        <p class="has-text-weight-bold ">{{movie.category || 'Netflix Original'}}</p>
+        <p class="has-text-weight-bold ">{{movie.category || 'Miniflix Original'}}</p>
         <h1 class="title is-size-1  has-text-weight-bold has-text-warning">{{movie.title || 'Black Panther' | toUpperCase}}</h1>
       </div>
   </div>
