@@ -1,5 +1,5 @@
 <template>
-  <div class="list-section">
+  <div>
     <h4 class="is-size-4">{{ category || 'Miniflix Originals'}}</h4>
     <div class="row">
       <div style="margin:auto;padding:5em"  v-if="!movies || movies.length < 1">Loading...</div>
