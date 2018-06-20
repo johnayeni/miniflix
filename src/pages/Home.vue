@@ -1,7 +1,7 @@
 <template>
  <div>
   <VideoPlayer :cloudinaryInstance="cloudinaryInstance" :movie="movie"></VideoPlayer>
-  <div class="container">
+  <div class="container home">
     <VideoList category="Movies" :cloudinaryInstance="cloudinaryInstance" @choose-movie="updatePlayer" :movies="movies"></VideoList>
     <VideoList category="Series" :cloudinaryInstance="cloudinaryInstance" @choose-movie="updatePlayer" :movies="movies"></VideoList>
     <VideoList category="Originals" :cloudinaryInstance="cloudinaryInstance" @choose-movie="updatePlayer" :movies="movies"></VideoList>
@@ -103,3 +103,11 @@ export default {
   }
 };
 </script>
+
+<style>
+  @media only screen and (max-width: 767px) {
+    .home.container {
+      padding: 1em;
+    }
+  }
+</style>
