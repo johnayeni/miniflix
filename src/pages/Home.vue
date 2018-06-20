@@ -92,9 +92,9 @@ export default {
       cloud_name: 'johnayeni',
       secure: true
     });
-    axios.get(this.url).then(res => {
-      this.movies = res.data;
-    });
+    // axios.get(this.url).then(res => {
+    //   this.movies = res.data;
+    // });
   },
   methods: {
     updatePlayer(movie) {
@@ -103,8 +103,7 @@ export default {
   }
 };
 </script>
-
-<style>
+<style scoped>
   @media only screen and (max-width: 767px) {
     .home.container {
       padding: 1em;
