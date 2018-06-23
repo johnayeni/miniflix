@@ -5,7 +5,7 @@
       <div style="margin:auto;padding:5em"  v-if="!movies || movies.length < 1">Loading...</div>
       <div class="row__inner" v-else>
         <div v-for="movie in movies" :key="movie._id" class="tile">
-          <img :src="cloudinaryInstance.url(movie.banner)" alt="" class="banner" @click="$emit('choose-movie', movie)">
+          <img :src="cloudinaryInstance.url(movie.thumbnail)" alt="" class="thumbnail" @click="$emit('choose-movie', movie)">
         </div>
       </div>
     </div>

@@ -68,12 +68,12 @@ a {
   transform-origin: center left;
 }
 
-.banner {
+.thumbnail {
   max-width: 204px;
   height: 250px;
 }
 
-.banner:hover {
+.thumbnail:hover {
   cursor: pointer;
 }
 

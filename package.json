@@ -12,11 +12,14 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build && cp .env.example .env"
   },
   "dependencies": {
+    "auth0-js": "^9.6.1",
     "axios": "^0.18.0",
     "bulma": "^0.7.1",
+    "dotenv": "^6.0.0",
+    "jwt-decode": "^2.2.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.3",
     "serve-static": "^1.13.2",

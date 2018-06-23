@@ -1,5 +1,5 @@
 <template>
-  <nav :class="`navbar is-black ${isTransparent ? 'navbar-transparent': ''}`"
+  <nav class="navbar is-black"
     role="navigation" aria-label="main navigation" style="padding:1em">
       <div class="container">
       <div class="navbar-brand">
@@ -30,7 +30,8 @@
             </a> -->
           <div class="navbar-end">
             <router-link to="/home" class="navbar-item">Home</router-link>
-            <div class="navbar-item has-dropdown is-hoverable">
+            <a href="#" class="navbar-item" v-show="!isLoggedIn()" @click="handleLogin">Login/Sign up</a>
+            <div v-show="isLoggedIn()" class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
                 John
               </a>
@@ -38,6 +39,9 @@
                 <router-link to="/profile" class="navbar-item">
                   Profile
                 </router-link>
+                <a href="#" class="navbar-item" @click="handleLogout()">
+                  Logout
+                </a>
               </div>
             </div>
           </div>
@@ -49,6 +53,7 @@
 
 <script>
 import UploadModal from '../components/UploadModal.vue';
+import { isLoggedIn, login, logout } from '../../utils/auth';
 
 export default {
   components: {
@@ -57,10 +62,18 @@ export default {
   data() {
     return {
       isOpen: false,
-      isTransparent: false
     };
   },
   methods: {
+    handleLogin() {
+      login();
+    },
+    handleLogout() {
+      logout();
+    },
+    isLoggedIn() {
+      return isLoggedIn();
+    },
     toggleNav() {
       this.isOpen = !this.isOpen;
     },
@@ -77,16 +90,16 @@ export default {
     }
   },
   created() {
-    document.addEventListener('scroll', () => {
-      if (
-        window.scrollY < 200 &&
-        String(window.location.pathname) === '/home'
-      ) {
-        this.isTransparent = true;
-      } else {
-        this.isTransparent = false;
-      }
-    });
+    // document.addEventListener('scroll', () => {
+    //   if (
+    //     window.scrollY < 200 &&
+    //     String(window.location.pathname) === '/home'
+    //   ) {
+    //     this.isTransparent = true;
+    //   } else {
+    //     this.isTransparent = false;
+    //   }
+    // });
   }
 };
 </script>
