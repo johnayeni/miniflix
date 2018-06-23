@@ -5,7 +5,7 @@
         <div style="margin:auto;padding:8em" v-if="!movies || movies.length < 1">Loading...</div>
         <div class="column is-2" v-else v-for="movie in movies" :key="movie._id" >
             <router-link to="/home">
-              <img :src="cloudinaryInstance.url(movie.banner)" :alt="movie.title"
+              <img :src="cloudinaryInstance.url(movie.thumbnail)" :alt="movie.title"
                 style="height: 100%; width:100%">
               <p class="has-text-centered">{{ movie.title }}</p>
             </router-link>
@@ -17,67 +17,16 @@
 <script>
 import axios from 'axios';
 
-const banner =
+const thumbnail =
   'https://res.cloudinary.com/christekh/image/upload/y4MBh0EjBlMuOzv9axM4qJlmhzz_vhvcjt';
 const trailer =
   'http://res.cloudinary.com/johnayeni/video/upload/v1529271524/Spider-Man_into_the_spider_verse_official_trailer_gasgup.mp4';
-
+const slug = 'spider-man-2018';
 export default {
   data() {
     return {
-      movies: [
-        {
-          title: 'Black Panther',
-          banner: banner,
-          trailer: trailer
-        },
-        {
-          title: 'Dead pool',
-          banner: banner,
-          trailer: trailer
-        },
-        {
-          title: 'Ant man',
-          banner: banner,
-          trailer: trailer
-        },
-        {
-          title: 'Justice League',
-          banner: banner,
-          trailer: trailer
-        },
-        {
-          title: 'Star wars',
-          banner: banner,
-          trailer: trailer
-        },
-        {
-          title: 'Spiderman',
-          banner: banner,
-          trailer: trailer
-        },
-        {
-          title: 'Spiderman',
-          banner: banner,
-          trailer: trailer
-        },
-        {
-          title: 'Star wars',
-          banner: banner,
-          trailer: trailer
-        },
-        {
-          title: 'Spiderman',
-          banner: banner,
-          trailer: trailer
-        },
-        {
-          title: 'Spiderman',
-          banner: banner,
-          trailer: trailer
-        }
-      ],
-      url: '<YOUR WEBTASK URL>/movies',
+      movies: [],
+      url: `${process.env.VUE_APP_WEB_TASK_URL}/category/originals/movies`,
     };
   },
   created() {
@@ -85,9 +34,9 @@ export default {
       cloud_name: 'johnayeni',
       secure: true
     });
-    // axios.get(this.url).then(res => {
-    //   this.movies = res.data;
-    // });
+    axios.get(this.url).then(res => {
+      this.movies = res.data;
+    });
   },
 };
 </script>
