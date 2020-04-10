@@ -15,7 +15,7 @@
     "postinstall": "npm run build && cp .env.example .env"
   },
   "dependencies": {
-    "auth0-js": "^9.6.1",
+    "auth0-js": "^9.13.2",
     "axios": "^0.18.0",
     "bulma": "^0.7.1",
     "dotenv": "^6.0.0",
